@@ -9,9 +9,9 @@ const failure = (payload: any) => ({ type: FAILURE, payload });
 const complete = () => ({ type: COMPLETE });
 
 const initialState = {
-  loading: true,
-  error: null,
   data: null,
+  error: null,
+  loading: true,
 };
 
 const reducer = (state: any, { type, payload }: any) => {
