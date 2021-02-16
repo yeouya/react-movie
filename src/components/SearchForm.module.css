@@ -1,0 +1,21 @@
+.wrapper {
+  --gap: 0.7rem;
+
+  display: grid;
+  grid-template-columns: auto minmax(0, auto) auto;
+  gap: var(--gap);
+  padding: var(--gap);
+  border: 0.1rem solid #c8c8c8;
+  border-radius: 0.8rem;
+}
+
+.input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.icon {
+  display: grid;
+  align-items: center;
+  color: #969696;
+  font-size: 2rem;
+}
