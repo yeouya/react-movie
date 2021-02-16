@@ -1,10 +1,17 @@
 .wrapper {
   display: grid;
-  place-content: center;
+  grid-template-columns: minmax(auto, var(--app-width));
+  justify-content: center;
 }
 
 .container {
   display: grid;
-  justify-items: center;
+  place-content: center;
+  padding: 2rem;
+}
+
+.article {
+  display: grid;
   gap: 2rem;
+  text-align: center;
 }

@@ -1,9 +1,16 @@
 .wrapper {
   display: grid;
-  place-content: center;
+  grid-template-columns: minmax(auto, var(--app-width));
+  justify-content: center;
 }
 
-.wrapper::before {
+.container {
+  display: grid;
+  place-content: center;
+  padding: 2rem;
+}
+
+.container::before {
   --diameter: 3.5rem;
 
   content: "";
