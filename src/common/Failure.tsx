@@ -1,7 +1,5 @@
 import style from "./Failure.module.css";
 
-const { wrapper, container, article } = style;
-
 interface FailureProps {
   error: {
     name: string;
@@ -9,9 +7,11 @@ interface FailureProps {
   };
 }
 
+const { main, container, article } = style;
+
 export default function Failure({ error: { name, message } }: FailureProps) {
   return (
-    <main className={wrapper}>
+    <main className={main}>
       <div className={container}>
         <article className={article}>
           <h1>{`${name}: ${message}`}</h1>

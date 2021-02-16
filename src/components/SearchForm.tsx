@@ -5,7 +5,7 @@ import { FcSearch } from "react-icons/fc";
 import { MdClose } from "react-icons/md";
 import style from "./SearchForm.module.css";
 
-const { wrapper, input, icon } = style;
+const { form, input, icon } = style;
 
 export default function SearchForm() {
   const [query, setQuery, bindQuery] = useInput();
@@ -25,7 +25,7 @@ export default function SearchForm() {
   };
 
   return (
-    <form className={wrapper} onSubmit={handleSubmit}>
+    <form className={form} onSubmit={handleSubmit}>
       <span className={icon}>
         <FcSearch />
       </span>

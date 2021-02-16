@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import SearchForm from "./SearchForm";
 import style from "./Header.module.css";
 
-const { wrapper, container, heading } = style;
+const { header, container, heading } = style;
 
 export default function Header() {
   return (
-    <header className={wrapper}>
+    <header className={header}>
       <div className={container}>
         <h1 className={heading}>
           <Link to="/">React Movie</Link>

@@ -1,10 +1,10 @@
 import style from "./Loading.module.css";
 
-const { wrapper, container } = style;
+const { main, container } = style;
 
 export default function Loading() {
   return (
-    <main className={wrapper}>
+    <main className={main}>
       <div className={container}></div>
     </main>
   );

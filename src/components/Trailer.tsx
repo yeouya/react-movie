@@ -1,7 +1,7 @@
 import YouTube from "react-youtube";
 import style from "./Trailer.module.css";
 
-const { wrapper, container, iframe } = style;
+const { figure, container, iframe } = style;
 
 interface TrailerProps {
   videoId: string;
@@ -9,7 +9,7 @@ interface TrailerProps {
 
 export default function Trailer({ videoId }: TrailerProps) {
   return (
-    <figure className={wrapper}>
+    <figure className={figure}>
       <YouTube
         containerClassName={container}
         className={iframe}
