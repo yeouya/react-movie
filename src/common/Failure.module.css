@@ -1,0 +1,10 @@
+.wrapper {
+  display: grid;
+  place-content: center;
+}
+
+.container {
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
+}
