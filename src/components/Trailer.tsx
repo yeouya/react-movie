@@ -9,12 +9,12 @@ interface TrailerProps {
 
 export default function Trailer({ videoId }: TrailerProps) {
   return (
-    <div className={wrapper}>
+    <figure className={wrapper}>
       <YouTube
         containerClassName={container}
         className={iframe}
         videoId={videoId}
       />
-    </div>
+    </figure>
   );
 }
