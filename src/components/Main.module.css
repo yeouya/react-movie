@@ -1,0 +1,9 @@
+.main {
+  display: grid;
+  grid-template-columns: minmax(auto, var(--app-width));
+  justify-content: center;
+}
+
+.container {
+  padding: 2rem;
+}
