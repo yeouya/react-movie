@@ -1,0 +1,5 @@
+.article {
+  display: grid;
+  gap: 2rem;
+  text-align: center;
+}
