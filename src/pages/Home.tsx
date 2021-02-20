@@ -1,16 +1,14 @@
 import { v4 as uuid } from "uuid";
 import useFetchAll from "../hooks/useFetchAll";
 import { homeUrls } from "../urls";
-import Loading from "../common/Loading";
-import Failure from "../common/Failure";
+import Loading from "../components/Loading";
+import Failure from "../components/Failure";
+import Main from "../components/Main";
 import Movies from "../components/Movies";
 import { Data } from "../types";
-import style from "./Home.module.css";
 
 const urls = homeUrls.map(({ url }) => url);
 const titles = homeUrls.map(({ title }) => title);
-
-const { main, container } = style;
 
 export default function Home() {
   const { loading, error, data } = useFetchAll(urls);
@@ -20,12 +18,10 @@ export default function Home() {
   ) : error ? (
     <Failure error={error} />
   ) : (
-    <main className={main}>
-      <div className={container}>
-        {data.map(({ results: movies }: Data, index: number) => (
-          <Movies key={uuid()} title={titles[index]} movies={movies} />
-        ))}
-      </div>
-    </main>
+    <Main style={{ display: "grid", gap: "2.5rem", padding: "2.5rem 2rem" }}>
+      {data.map(({ results: movies }: Data, index: number) => (
+        <Movies key={uuid()} title={titles[index]} movies={movies} />
+      ))}
+    </Main>
   );
 }
