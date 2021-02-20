@@ -1,16 +1,14 @@
-import { useRef, UIEvent, MouseEvent } from "react";
+import { useRef, HTMLAttributes, MouseEvent } from "react";
 import SliderButton from "./SliderButton";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import { Props } from "../types";
 import style from "./Slider.module.css";
 
 const { wrapper, slider } = style;
 
-interface SliderProps extends Props {
-  onScroll(e: UIEvent<HTMLDivElement, globalThis.UIEvent>): void;
-}
-
-export default function Slider({ onScroll, children }: SliderProps) {
+export default function Slider({
+  children,
+  ...restProps
+}: HTMLAttributes<HTMLDivElement>) {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const handleClick = ({
@@ -38,13 +36,13 @@ export default function Slider({ onScroll, children }: SliderProps) {
 
   return (
     <div className={wrapper}>
-      <SliderButton direction="left" onClick={handleClick}>
+      <SliderButton data-direction="left" onClick={handleClick}>
         <MdKeyboardArrowLeft />
       </SliderButton>
-      <div className={slider} ref={sliderRef} onScroll={onScroll}>
+      <div className={slider} ref={sliderRef} {...restProps}>
         {children}
       </div>
-      <SliderButton direction="right" onClick={handleClick}>
+      <SliderButton data-direction="right" onClick={handleClick}>
         <MdKeyboardArrowRight />
       </SliderButton>
     </div>
