@@ -1,0 +1,10 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 12rem;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.heading {
+  font-size: 2rem;
+}

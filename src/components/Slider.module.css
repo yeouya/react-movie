@@ -1,0 +1,27 @@
+.wrapper {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.wrapper:hover button {
+  opacity: 1;
+}
+
+.slider {
+  --gap: 1rem;
+  --column-width: calc(
+    (100% - (var(--gap) * (var(--slider-view) - 1))) / var(--slider-view)
+  );
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(var(--slider-view), var(--column-width));
+  gap: var(--gap);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
