@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { getImage } from "../urls";
+import { getImageUrl } from "../urls";
 import { MovieData } from "../types";
 import style from "./Movie.module.css";
 
@@ -12,7 +12,7 @@ const { img } = style;
 export default function Movie({
   movie: { id, title, poster_path },
 }: MovieProps) {
-  const src = getImage(500, poster_path);
+  const src = getImageUrl(500, poster_path);
 
   return (
     <figure>
