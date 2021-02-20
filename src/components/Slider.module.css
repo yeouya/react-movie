@@ -16,7 +16,7 @@
 
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: repeat(var(--slider-view), var(--column-width));
+  grid-auto-columns: var(--column-width);
   gap: var(--gap);
   overflow-x: auto;
   scroll-behavior: smooth;
