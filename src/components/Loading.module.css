@@ -1,7 +1,6 @@
 .spinner {
-  --diameter: 3.5rem;
+  --diameter: 4rem;
 
-  content: "";
   width: var(--diameter);
   height: var(--diameter);
   border: 0.5rem solid dodgerblue;
