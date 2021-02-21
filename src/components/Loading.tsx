@@ -5,7 +5,7 @@ const { spinner } = style;
 
 export default function Loading() {
   return (
-    <Main style={{ display: "grid", placeContent: "center" }}>
+    <Main center>
       <div className={spinner}></div>
     </Main>
   );

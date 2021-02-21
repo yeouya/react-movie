@@ -1,15 +1,16 @@
 import { HTMLAttributes } from "react";
 import style from "./Main.module.css";
 
-const { main, container } = style;
+interface MainProps extends HTMLAttributes<HTMLDivElement> {
+  center?: boolean;
+}
 
-export default function Main({
-  children,
-  ...restProps
-}: HTMLAttributes<HTMLDivElement>) {
+const { main, container, placeCenter } = style;
+
+export default function Main({ center, children, ...restProps }: MainProps) {
   return (
     <main className={main}>
-      <div className={container} {...restProps}>
+      <div className={`${container} ${center && placeCenter}`} {...restProps}>
         {children}
       </div>
     </main>

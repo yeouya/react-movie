@@ -10,7 +10,7 @@ interface FailureProps {
 
 export default function Failure({ error: { name, message } }: FailureProps) {
   return (
-    <Main style={{ display: "grid", placeContent: "center" }}>
+    <Main center>
       <MessageCard
         title={`${name}: ${message}`}
         text="잠시 후에 다시 시도해주세요."
