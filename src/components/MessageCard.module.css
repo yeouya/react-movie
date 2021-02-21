@@ -1,0 +1,9 @@
+.article {
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2rem;
+}
