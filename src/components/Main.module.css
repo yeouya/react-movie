@@ -1,12 +1,12 @@
 .main {
   display: grid;
   grid-template-columns: minmax(auto, var(--app-width));
-  align-content: flex-start;
   justify-content: center;
 }
 
 .container {
   display: grid;
+  align-content: flex-start;
   gap: 2.5rem;
   padding: 2.5rem 2rem;
 }
