@@ -1,0 +1,14 @@
+.section {
+  display: grid;
+  gap: 1rem;
+}
+
+.heading {
+  font-size: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--slider-view), 1fr);
+  gap: 1rem;
+}
