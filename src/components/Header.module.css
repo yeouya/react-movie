@@ -1,12 +1,12 @@
 .header {
   position: sticky;
   top: 0;
+  z-index: 999;
   display: grid;
   grid-template-columns: minmax(auto, var(--app-width));
   justify-content: center;
   border-bottom: 0.1rem solid #e6e6e6;
   background: white;
-  z-index: 999;
 }
 
 .container {
