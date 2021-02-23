@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { v4 as uuid } from "uuid";
+import HomeProvider from "./contexts/HomeContext";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
@@ -12,9 +13,11 @@ export default function App() {
     <Router basename={process.env.PUBLIC_URL}>
       <Header />
       <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
+        <HomeProvider>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+        </HomeProvider>
         <Route
           path="/detail/:id"
           render={() => <Detail key={uuid()} />}
