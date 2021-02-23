@@ -1,12 +1,21 @@
 import { useReducer, useEffect } from "react";
 
-const SUCCESS = "SUCCESS";
-const FAILURE = "FAILURE";
-const COMPLETE = "COMPLETE";
+interface State {
+  data: any;
+  error: Error | null;
+  loading: boolean;
+}
 
-const success = (payload: any) => ({ type: SUCCESS, payload });
-const failure = (payload: any) => ({ type: FAILURE, payload });
-const complete = () => ({ type: COMPLETE });
+enum ActionType {
+  SUCCESS = "SUCCESS",
+  FAILURE = "FAILURE",
+  COMPLETE = "COMPLETE",
+}
+
+type Action =
+  | { type: ActionType.SUCCESS; data: any }
+  | { type: ActionType.FAILURE; error: Error }
+  | { type: ActionType.COMPLETE };
 
 const initialState = {
   data: null,
@@ -14,14 +23,16 @@ const initialState = {
   loading: true,
 };
 
-const reducer = (state: any, { type, payload }: any) => {
-  switch (type) {
-    case SUCCESS:
-      return { ...state, data: payload };
-    case FAILURE:
-      return { ...state, error: payload };
-    case COMPLETE:
+const reducer = (state: State, action: Action) => {
+  switch (action.type) {
+    case ActionType.SUCCESS:
+      return { ...state, data: action.data };
+    case ActionType.FAILURE:
+      return { ...state, error: action.error };
+    case ActionType.COMPLETE:
       return { ...state, loading: false };
+    default:
+      throw new SyntaxError("유효하지 않은 액션 타입입니다.");
   }
 };
 
@@ -29,11 +40,17 @@ export default function useFetch(url: string) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => dispatch(success(data)))
-      .catch((err) => dispatch(failure(err)))
-      .finally(() => dispatch(complete()));
+    (async () => {
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        dispatch({ type: ActionType.SUCCESS, data });
+      } catch (error) {
+        dispatch({ type: ActionType.FAILURE, error });
+      } finally {
+        dispatch({ type: ActionType.COMPLETE });
+      }
+    })();
   }, [url]);
 
   return state;
