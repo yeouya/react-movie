@@ -1,5 +1,13 @@
-import { useState, ChangeEvent } from "react";
-import { UseInput } from "../types";
+import { useState, Dispatch, SetStateAction, ChangeEvent } from "react";
+
+type UseInput = [
+  string,
+  Dispatch<SetStateAction<string>>,
+  {
+    value: string;
+    onChange: ({ target: { value } }: ChangeEvent<HTMLInputElement>) => void;
+  }
+];
 
 export default function useInput(initialValue = "") {
   const [value, setValue] = useState(initialValue);
@@ -12,7 +20,5 @@ export default function useInput(initialValue = "") {
 
   const bindValue = { value, onChange: handleChange };
 
-  const result: UseInput = [value, setValue, bindValue];
-
-  return result;
+  return [value, setValue, bindValue] as UseInput;
 }
