@@ -18,7 +18,7 @@ export default function Home() {
   ) : error ? (
     <Failure error={error} />
   ) : (
-    <Main style={{ display: "grid", gap: "2.5rem", padding: "2.5rem 2rem" }}>
+    <Main>
       {data.map(({ results: movies }: Data, index: number) => (
         <Movies key={uuid()} title={titles[index]} movies={movies} />
       ))}

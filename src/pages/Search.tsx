@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import { getSearchUrl } from "../urls";
 import Loading from "../components/Loading";
 import Failure from "../components/Failure";
 import Main from "../components/Main";
@@ -8,9 +9,8 @@ import SearchResult from "../components/SearchResult";
 
 export default function Search() {
   const { query } = useParams<{ query: string }>();
-  const { loading, error, data } = useFetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${query}&include_adult=true&language=ko-KR`
-  );
+  const url = getSearchUrl(query);
+  const { loading, error, data } = useFetch(url);
 
   return loading ? (
     <Loading />
