@@ -6,6 +6,7 @@
 
 .container {
   display: grid;
+  align-content: flex-start;
   gap: 2.5rem;
   padding: 2.5rem 2rem;
 }
