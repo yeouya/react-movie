@@ -1,0 +1,10 @@
+.wrapper {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.2rem;
+}
+
+.icon {
+  display: grid;
+  align-items: center;
+}
