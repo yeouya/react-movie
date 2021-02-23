@@ -12,7 +12,7 @@ export const getMovieVideosUrl = (id: string) =>
 export const getSearchUrl = (query: string) =>
   `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${query}&language=ko-KR`;
 export const getImageUrl = (width: number, path: string) =>
-  `http://image.tmdb.org/t/p/w${width + path}`;
+  `https://image.tmdb.org/t/p/w${width + path}`;
 
 export const homeUrls = [
   { title: "영화관 상영작", url: NOW_PLAYING_MOVIES_URL },
