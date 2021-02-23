@@ -26,18 +26,18 @@ export default function Modal({
     }
   };
 
-  const handleKeydown = ({ key }: KeyboardEvent) => {
-    if (key === "Escape") {
-      setIsOpen(false);
-    }
-  };
-
   useEffect(() => {
+    const handleKeydown = ({ key }: KeyboardEvent) => {
+      if (key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
     document.addEventListener("keydown", handleKeydown);
     return () => {
       document.removeEventListener("keydown", handleKeydown);
     };
-  });
+  }, [setIsOpen]);
 
   const container = document.querySelector(target);
 
