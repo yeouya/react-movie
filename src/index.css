@@ -5,7 +5,7 @@
   --slider-view: 6;
   --slider-gap: 1rem;
   --slider-item-width: calc(
-    (100% - (var(--slider-gap) * (var(--slider-view) - 1))) / var(--slider-view)
+    (100% - var(--slider-gap) * (var(--slider-view) - 1)) / var(--slider-view)
   );
 }
 
@@ -22,6 +22,7 @@ a {
 
 input,
 button {
+  color: inherit;
   font: inherit;
   border: none;
   outline: none;
