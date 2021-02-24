@@ -33,7 +33,7 @@
 }
 
 .button {
-  justify-self: flex-end;
+  justify-self: end;
   color: white;
   padding: 0.6rem 1rem;
   background: dodgerblue;
