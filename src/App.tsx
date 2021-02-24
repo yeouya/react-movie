@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import HomeProvider from "./contexts/HomeContext";
 import Header from "./components/Header";
@@ -10,29 +10,29 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
-      <Header />
-      <Switch>
-        <HomeProvider>
+    <HomeProvider>
+      <Router>
+        <Header />
+        <Switch>
           <Route path="/" exact>
             <Home />
           </Route>
-        </HomeProvider>
-        <Route
-          path="/detail/:id"
-          render={() => <Detail key={uuid()} />}
-          exact
-        />
-        <Route
-          path="/search/:query"
-          render={() => <Search key={uuid()} />}
-          exact
-        />
-        <Route path="*">
-          <NotFound />
-        </Route>
-      </Switch>
-      <Footer />
-    </Router>
+          <Route
+            path="/detail/:id"
+            render={() => <Detail key={uuid()} />}
+            exact
+          />
+          <Route
+            path="/search/:query"
+            render={() => <Search key={uuid()} />}
+            exact
+          />
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </HomeProvider>
   );
 }
