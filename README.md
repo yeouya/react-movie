@@ -76,7 +76,7 @@ auto-fill or auto-fit, minmax 조합으로 어떻게든 해보려고 했는데
 
 이게 스크롤이 들어가면 제대로 동작을 안한다.. 결국 이건 포기.
 
-```tsx
+```js
 Promise.allSettled();
 ```
 
@@ -95,5 +95,32 @@ Promise.allSettled();
 기존에 쓰이던 `Promise.all()` 메서드랑 다르게 사용법이 좀 이질적이라고
 
 해야하나.. 당장 써보면서 받았던 느낌은 이렇다.
+
+```tsx
+useEffect(() => {
+  const handleKeydown = ({ key }: KeyboardEvent) => {
+    if (key === "Escape") {
+      setIsOpen(false);
+    }
+  };
+
+  document.addEventListener("keydown", handleKeydown);
+  return () => {
+    document.removeEventListener("keydown", handleKeydown);
+  };
+}, [setIsOpen]);
+```
+
+모달 컴포넌트를 클릭이 아닌 esc 키로도 닫을 수 있게 하고 싶어서
+
+추가로 작성한 코드이고, 잘 동작하는것도 확인했는데
+
+YouTube Player API 로 불러온 iframe 태그 내부에선 제대로 동작하질 않는다.
+
+iframe 태그 내부에서 일어난 이벤트를 들을 방법이 있는 것 같긴 한데
+
+어찌저찌 해서 성공하더라도 결국엔 동일 출처 정책에 막힐 게 뻔해서
+
+깔끔하게 포기했다.
 
 ## 프로젝트 후기
