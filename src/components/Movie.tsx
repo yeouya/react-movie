@@ -7,7 +7,7 @@ interface MovieProps {
   movie: MovieData;
 }
 
-const { img } = style;
+const { figure, img } = style;
 
 export default function Movie({
   movie: { id, title, poster_path },
@@ -15,7 +15,7 @@ export default function Movie({
   const src = getImageUrl(500, poster_path);
 
   return (
-    <figure>
+    <figure className={figure}>
       <Link to={`/detail/${id}`}>
         <img className={img} src={src} alt={title} />
       </Link>

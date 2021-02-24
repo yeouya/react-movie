@@ -1,6 +1,14 @@
+.figure {
+  position: relative;
+  padding-top: 150%;
+}
+
 .img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  aspect-ratio: 2/3;
+  height: 100%;
   object-fit: cover;
   border-radius: 0.5rem;
 }
