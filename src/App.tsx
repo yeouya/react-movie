@@ -7,11 +7,13 @@ import Detail from "./pages/Detail";
 import Search from "./pages/Search";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
+import ScrollToTop from "./common/ScrollToTop";
 
 export default function App() {
   return (
     <HomeProvider>
       <Router>
+        <ScrollToTop />
         <Header />
         <Switch>
           <Route path="/" exact>
